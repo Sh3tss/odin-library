@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const author = document.getElementById('author');
     const title = document.getElementById('title');
     const pages = document.getElementById('pages');
+    //selecting the div to insert the books 
+    const pageBooks = document.querySelector('.books');
 
     //make the form openup when the new book get clicked
     newbtn.addEventListener('click', () => {
@@ -40,4 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
     closeModalbtn.addEventListener('click', () => {
         modal.classList.remove('active');
     })
+
+    //function to set the books inside the page(render)
+    function renderBooks() {
+        pageBooks.innerHTML = '';
+        myLibrary.forEach(book => {
+            console.log("Renderizando livro:", book.title);
+        })
+    }
 })
