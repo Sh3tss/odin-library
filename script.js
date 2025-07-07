@@ -33,10 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //to add the information inside my constructor
         const newBook = new Book(titleValue, authorValue, pagesValue, readStatus);
         myLibrary.push(newBook);
-
-        console.log('Novo livro adicionado:', newBook); // Para você ver no console
-        console.log('Minha Biblioteca agora:', myLibrary);
-
+        renderBooks();
         modal.classList.remove('active');
     })
     closeModalbtn.addEventListener('click', () => {
@@ -46,8 +43,33 @@ document.addEventListener('DOMContentLoaded', () => {
     //function to set the books inside the page(render)
     function renderBooks() {
         pageBooks.innerHTML = '';
+
         myLibrary.forEach(book => {
-            console.log("Renderizando livro:", book.title);
+            const bookCard = document.createElement('div');
+            bookCard.classList.add('bookcard');
+            const bookTitle = document.createAttribute('h3');
+            bookTitle.textContent = book.title;
+            const bookAuthor = document.createElement('p');
+            bookAuthor.textContent = `Author: ${book.author}`;
+            const bookPages = document.createElement('p');
+            bookPages.textContent = `Pages: ${book.pages}`;
+            const markRead = document.createElement('p');
+            markRead.classList.add('readstatus');
+
+            if (book.read) {
+                markRead.textContent = 'Status: Read';
+                markRead.classList.add('read');
+            } else {
+                markRead.textContent = 'Status: Not Read';
+            }
+
+            bookCard.appendChild(bookTitle);
+            bookCard.appendChild(bookAuthor);
+            bookCard.appendChild(bookPages);
+            bookCard.appendChild(markRead);
+
+            pageBooks.appendChild(bookCard);
         })
     }
+    renderBooks();
 })
