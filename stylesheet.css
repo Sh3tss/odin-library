@@ -169,6 +169,7 @@ body {
 }
 .close-modal-btn {
     position: absolute;
+    border: none;
     top: 15px;
     right: 15px;
     background: none;

@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('modalOverlay');
     const insertbtn = document.getElementById('insertbookbtn');
     const closeModalbtn = document.getElementById('closeModalbtn');
+    //get the input values
     const author = document.getElementById('author');
     const title = document.getElementById('title');
     const pages = document.getElementById('pages');
@@ -19,15 +20,21 @@ document.addEventListener('DOMContentLoaded', () => {
     newbtn.addEventListener('click', () => {
         modal.classList.add('active');
     })
-    //make the form close after click the insert button inside the form
+    //here we close the form with the insert button, and catch the data from the form inputs
     insertbtn.addEventListener('click', (event) => {
         event.preventDefault();
+        //get the data from the inputs
         const authorValue = author.value;
         const titleValue = title.value;
         const pagesValue = pages.value;
-        console.log('Autor:', authorValue);
-        console.log('Título:', titleValue);
-        console.log('Páginas:', pagesValue);
+        const readStatus = false;  //all the books start with a false status to read
+        //to add the information inside my constructor
+        const newBook = newBook(titleValue, authorValue, pagesValue, readStatus);
+        myLibrary.push(newBook);
+
+        console.log('Novo livro adicionado:', newBook); // Para você ver no console
+        console.log('Minha Biblioteca agora:', myLibrary);
+
         modal.classList.remove('active');
     })
     closeModalbtn.addEventListener('click', () => {
