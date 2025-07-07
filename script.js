@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         myLibrary.forEach(book => {
             const bookCard = document.createElement('div');
             bookCard.classList.add('bookcard');
-            const bookTitle = document.createAttribute('h3');
+            const bookTitle = document.createElement('h3');
             bookTitle.textContent = book.title;
             const bookAuthor = document.createElement('p');
             bookAuthor.textContent = `Author: ${book.author}`;
@@ -71,5 +71,4 @@ document.addEventListener('DOMContentLoaded', () => {
             pageBooks.appendChild(bookCard);
         })
     }
-    renderBooks();
 })
