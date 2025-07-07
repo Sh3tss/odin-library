@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const pagesValue = pages.value;
         const readStatus = false;  //all the books start with a false status to read
         //to add the information inside my constructor
-        const newBook = newBook(titleValue, authorValue, pagesValue, readStatus);
+        const newBook = new Book(titleValue, authorValue, pagesValue, readStatus);
         myLibrary.push(newBook);
 
         console.log('Novo livro adicionado:', newBook); // Para você ver no console
