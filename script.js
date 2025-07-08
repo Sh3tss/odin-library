@@ -72,6 +72,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 renderBooks();
             });
 
+            //mark as read button
+            const readBtn = document.createElement('button');
+            readBtn.classList.add('readBtn');
+            readBtn.textContent = book.read ? 'Mark as Not Read' : 'Mark as Read';
+            readBtn.addEventListener('click', () => {
+                book.read = !book.read;
+                renderBooks();
+            });
+
             if (book.read) {
                 markRead.textContent = 'Status: Read';
                 markRead.classList.add('read');
@@ -81,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             //delete and mark as read buttons
             bookActions.appendChild(deleteBtn);
+            bookActions.appendChild(readBtn);
 
             bookCard.appendChild(bookTitle);
             bookCard.appendChild(bookAuthor);
@@ -89,8 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
             bookCard.appendChild(bookActions);
 
             pageBooks.appendChild(bookCard);
-
-
         });
     }
 });
