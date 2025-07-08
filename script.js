@@ -58,10 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
             markRead.classList.add('readstatus');
             //bookactions containter
             const bookActions = document.createElement('div');
-            bookActions.classList.add('bookaction');
+            bookActions.classList.add('bookActions');
             //delete button
             const deleteBtn = document.createElement('button');
-            deleteBtn.classList.add('deletebtn');
+            deleteBtn.classList.add('deleteBtn');
             deleteBtn.innerHTML = '&#128465;';
             deleteBtn.addEventListener('click', () => {
                 const bookIndex = myLibrary.indexOf(book);
