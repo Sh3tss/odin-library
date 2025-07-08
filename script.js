@@ -35,6 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
         myLibrary.push(newBook);
         renderBooks();
         modal.classList.remove('active');
+        author.value = '';
+        title.value = '';
+        pages.value = '';
     })
     closeModalbtn.addEventListener('click', () => {
         modal.classList.remove('active');
