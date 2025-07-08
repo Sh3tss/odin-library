@@ -35,9 +35,20 @@ document.addEventListener('DOMContentLoaded', () => {
         myLibrary.push(newBook);
         renderBooks();
         modal.classList.remove('active');
+
+        console.log("Tentando limpar os campos:");
+        console.log("Input de Autor:", author);
+        console.log("Input de Título:", title);
+        console.log("Input de Páginas:", pages);
+        
         author.value = '';
         title.value = '';
         pages.value = '';
+
+        console.log("Valores dos campos após a tentativa de limpeza:");
+        console.log("Valor do Autor:", author.value);
+        console.log("Valor do Título:", title.value);
+        console.log("Valor das Páginas:", pages.value);
     })
     closeModalbtn.addEventListener('click', () => {
         modal.classList.remove('active');
