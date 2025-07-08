@@ -62,13 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
             //delete button
             const deleteBtn = document.createElement('button');
             deleteBtn.classList.add('deletebtn');
-            deleteBtn.textContent = '&#128465;';
+            deleteBtn.innerHTML = '&#128465;';
             deleteBtn.addEventListener('click', () => {
                 const bookIndex = myLibrary.indexOf(book);
                 if (bookIndex > -1) {
                     myLibrary.splice(bookIndex, 1);
                 }
                 pageBooks.removeChild(bookCard);
+                renderBooks();
             });
 
             if (book.read) {
@@ -90,6 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
             pageBooks.appendChild(bookCard);
 
 
-        })
+        });
     }
-})
+});
