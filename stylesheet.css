@@ -110,7 +110,7 @@ body {
 .bookcard .readstatus.read {
     color: #27ae60;
 }
-.bookactions {
+.bookActions {
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -118,7 +118,7 @@ body {
     border-top: 1px solid #eee;
     padding-top: 15px;
 }
-.bookactions button {
+.bookActions button {
     background: none;
     border: none;
     cursor: pointer;
@@ -131,17 +131,18 @@ body {
     justify-content: center;
     align-items: center;
 }
-.bookactions button:hover {
+.bookActions button:hover {
     transform: translateY(-2px);
-}.bookactions .deletebtn {
+}
+.bookActions .deleteBtn {
     border: none;
 }
-.bookactions .deletebtn:hover {
+.bookActions .deleteBtn:hover {
     color: #e74c3c;
     border: none;
     transform: translateY(-2px);
 }
-.bookactions .readbtn:hover {
+.bookActions .readBtn:hover {
     color: #2ecc71;
 }
 .modaloverlay {
