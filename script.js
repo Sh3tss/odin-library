@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pageBooks.innerHTML = '';
 
         myLibrary.forEach(book => {
+            //create the bookcard for the books
             const bookCard = document.createElement('div');
             bookCard.classList.add('bookcard');
             const bookTitle = document.createElement('h3');
@@ -55,6 +56,20 @@ document.addEventListener('DOMContentLoaded', () => {
             bookPages.textContent = `Pages: ${book.pages}`;
             const markRead = document.createElement('p');
             markRead.classList.add('readstatus');
+            //bookactions containter
+            const bookActions = document.createElement('div');
+            bookActions.classList.add('bookaction');
+            //delete button
+            const deleteBtn = document.createElement('button');
+            deleteBtn.classList.add('deletebtn');
+            deleteBtn.textContent = '&#128465;';
+            deleteBtn.addEventListener('click', () => {
+                const bookIndex = myLibrary.indexOf(book);
+                if (bookIndex > -1) {
+                    myLibrary.splice(bookIndex, 1);
+                }
+                pageBooks.removeChild(bookCard);
+            });
 
             if (book.read) {
                 markRead.textContent = 'Status: Read';
@@ -63,12 +78,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 markRead.textContent = 'Status: Not Read';
             }
 
+            //delete and mark as read buttons
+            bookActions.appendChild(deleteBtn);
+
             bookCard.appendChild(bookTitle);
             bookCard.appendChild(bookAuthor);
             bookCard.appendChild(bookPages);
             bookCard.appendChild(markRead);
+            bookCard.appendChild(bookActions);
 
             pageBooks.appendChild(bookCard);
+
+
         })
     }
 })
